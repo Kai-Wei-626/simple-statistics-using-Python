@@ -1,8 +1,12 @@
 # simple-statistics-using-Python
+
 Simple statistics - just started
 
 I will use the Titanic dataset to introduce the python statistics functions
+
 (Download: biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.xls)
+
+
 
 Columns Description:
 
