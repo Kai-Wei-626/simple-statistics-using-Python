@@ -12,14 +12,14 @@ hypothesis test 2 : test if proportions  different
 """
 
 """
-Hypothesis test 1 
+Hypothesis test 1 ----
 Question: we are trygin to test whether a new, low-fat diet actually help obese people lose weight.
 100 randomly assigned obese people are assigned to group 1 and put on the low fat diet. Another 100 
 randomly assigned obese people are assigned to group 2 and put on a diet of approximately the same 
 amount of food, but not as low in fat. After 4 months, the mean weight loss was 9.31 lbs for
 group 1 (s = 4.67) and 7.40 lbs (s = 4.04) for group 2
 
-@example question came from KHAN
+@example question came from Khan Academy
 
 """
 import numpy as np
@@ -67,3 +67,59 @@ def hypothesis_test_onetail(mu1, mu2, std1, std2, n1, n2, alpha):
     return Z_score
 
 hypothesis_test_onetail(9.31,7.3,4.67,4.64,100, 100, 0.05)
+
+"""
+hypothesis test 2 -----
+
+there is a election coming up, and we are going to figure out if there
+is a meaningful differece between the proportion of man and woman that 
+are going to vote for a candidate. We randomly surveryed 1000 man and 1000 women.
+642 men are going to vote for the candidate, 591 women will vote for the candidate.
+
+@the example question came from Khan Academy
+"""
+p1 = 0.642
+p2 = 0.591
+n1 = 1000
+n2 = 1000
+
+# so the random variable that takes value 1 with probability p and the value 0 
+# with probability q = 1- p, we call this random variable follows a bernoulli distribution
+
+mu1 = p1
+mu2 = p2
+var1 = p1*(1-p1)
+var2 = p2*(1-p2)
+
+mu_difference = abs(mu1 - mu2)
+std_1_2 = np.sqrt(var1/n1 + var2/n2) #standart deviation of sampling distribution
+
+Z_score = (mu_difference-0)/std_1_2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
