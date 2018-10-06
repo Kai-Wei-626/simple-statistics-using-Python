@@ -114,3 +114,35 @@ ax3.set_xticks(np.arange(0, 80, 10))
 
 # the result shows people in higher class are elder.
 # We can also plot the age distribution based on if the passenger survived or not
+
+## boxplot, boxplot can be used to visualize outliers
+df_without_NAN_fare = df[df['fare'].isnull() == False] 
+fig1, ax1 = plt.subplots()
+ax1.set_title('Basic Plot')
+ax1.boxplot(df_without_NAN_fare['fare'])
+
+# we can use below function to find out what are the points fall out of upper bound
+def outliers_detect(df, columnList):
+    
+    outlier_rows = []
+    
+    for col in columnList:
+        # 1st quartile (25%)
+        Q1 = np.percentile(df[col], 25)
+        # 3rd quartile (75%)
+        Q3 = np.percentile(df[col], 75)
+        # Interquartile range (IQR)
+        IQR = Q3 - Q1
+        
+        outlier_list = df[(df[col] < Q1 - 1.5*IQR) | (df[col] > Q3 + 1.5*IQR)]
+        
+        outlier_indices = list(outlier_list.index.values)
+        
+        outlier_rows.extend(outlier_indices)
+        
+    return outlier_rows
+        
+outliers = outliers_detect(df, columnList=["age", "sibsp", "parch", "fare"])       
+        
+# select all the outliers
+df.loc[outliers]
