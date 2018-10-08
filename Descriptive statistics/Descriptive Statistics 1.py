@@ -1,9 +1,30 @@
+'''
+survival - Survival (0 = No; 1 = Yes)
+class - Passenger Class (1 = 1st; 2 = 2nd; 3 = 3rd)
+name - Name
+sex - Sex
+age - Age
+sibsp - Number of Siblings/Spouses Aboard
+parch - Number of Parents/Children Aboard
+ticket - Ticket Number
+fare - Passenger Fare
+cabin - Cabin
+embarked - Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)
+boat - Lifeboat (if survived)
+body - Body number (if did not survive and body was recovered)
+
+'''
+
 import os 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 os.chdir('/Users/kaiwei/Desktop/github/descriptive statistics')
 df = pd.read_csv('titanic.csv')
+
+# Infos
+df.info()
+df.isnull().sum()
 
 #value_counts function, it gives an idea how the data distributed.
 df['pclass'].value_counts()
