@@ -93,6 +93,33 @@ mu = 14.5
 std = 5.6
 z_value = st.norm.cdf(1 - alpha)
 
+CI_upper = mu + z_value * std/np.sqrt(n)
+CI_lower = mu - z_value * std/np.sqrt(n)
+
+
+"""Q6
+Several companies have been developing electronic guidance systems for cars. Motorola and Germany's 
+Blauounkt are two firms in the forefront of such research. Out of 120 trials of the Motorola model, 
+101 were successful; and out of 200 tests of the Blaupunkt model, 110 were successful. 
+Is there evidence to conclude that the Motorola electronic guidance system is superior to the German competitor?
+"""
+# H0: p1 <= p2
+p1 = 101/120
+p2 = 110/200
+n1,n2 = 120,200
+mu = p1 - p2
+std = np.sqrt(p1*(1-p1)/np.sqrt(n1) + p2*(1-p2)/np.sqrt(n2))
+
+z_score = mu/std
+p_value  = 1 -  st.norm.cdf(z_score) # p-value = 0.045
+#since p_value is less than 0.05, so we conclude to reject null hypo
+
+
+
+
+
+
+
 
 
 
