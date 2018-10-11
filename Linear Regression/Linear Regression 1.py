@@ -75,15 +75,58 @@ plt.show()
 
 
 
+"""Q3
+Does a statistically significant P-value for H0 : β1 = 0 imply that β1 is meaningfully different from 0?
+
+Recall that just because we get a small P-value and therefore a "statistically significant result" 
+when testing H0 : β1 = 0, it does not imply that β1 will be meaningfully different from 0. 
+This exercise is designed to illustrate this point. The data set practical.txt contains 1000 (x, y) data points.
+
+1. Create a fitted line plot and perform a standard regression analysis on the data set. 
+2. Interpret the r2 value. Does there appear to be a strong linear relation between x and y?
+3. Use the Minitab output to conduct the test H0 : β1 = 0. (We'll cover this formally in Lesson 2, 
+but for the purposes of this exercise reject H0 if the P-value for β1 is less than 0.05.)
+What is your conclusion about the relationship between x and y?
+4. Use the Minitab output to calculate a 95% confidence interval for β1. (Again, we'll cover this formally in Lesson 2,
+but for the purposes of this exercise use the formula b1 ± 2 × se (b1).
+Since the sample is so large, we can just use a t-value of 2 in this confidence interval formula.)
+Interpret your interval. Suppose that if the slope β1 is 1 or more,
+then the researcher's would deem it to be meaningfully different from 0. Does the interval suggest, 
+with 95% confidence, that β1 is meaningfully different from 0?
+5. Summarize the apparent contradiction you've found. What do you think is causing the contradiction?
+And, based on your findings, what would you suggest you should always do, whenever possible, when analyzing data?
 """
 
+#1
+datafile = "index_q3.csv"
+df = pd.read_csv(datafile)
+df.head()
+
+model = smf.ols('y ~ x', data = df).fit()
+y_pred = model.predict(df.x)
+model.summary()
+
+
+plt.scatter(df.x, df.y)
+plt.plot(df.x, y_pred, color = 'r')
+plt.show()
+
+# This fitted line has a slope with 0.0998 associated wiht a p value less than 0.01.
+
+#2
+r2 = 0.243
+#3
+p_value < 0.05, signicant
+#4
+CI = [.089, 0.111]
+#5
 
 
 
 
 
-
-
+#### Solution
+https://newonlinecourses.science.psu.edu/stat501/node/392/
 
 
 
