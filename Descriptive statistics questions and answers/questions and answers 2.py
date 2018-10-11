@@ -51,8 +51,10 @@ df = pd.DataFrame({'group': x, 'value': l})
 df.boxplot('value', by = 'group', figsize = (12,8))
 F, p = stats.f_oneway(l, l1, l2) # p = 0.327
 
-# p is large, we can conclude to reject null hypothesis under alpha level of confidence. We conclude meds is effective. but 
-# will this gives us a conclusion that drug is different than placebo?  
+# p is large, we have sufficient statistical power to conclude that we have failed to reject null hypothesis 
+# under alpha level of confidence. the meds are not effective
+
+
 
 
 """Q9
