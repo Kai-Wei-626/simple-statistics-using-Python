@@ -1,6 +1,7 @@
 1. When the application is started, the player may choose to (1) Play a word game, (2) View statistics, or (3) Adjust the game settings.  
-
-
+Create class Settings() to track the game setting.
+Create class Statistics() to track game stats.
+Create class Board(), Rack(), Pool() to design the game.
 
 
 2. When choosing to adjust the game settings, the player (1) may choose for the game to end after a certain maximum number of turns and (2) may adjust the number of and the letter points for each letter available in the pool of letters, starting with the default matching the English Scrabble distribution (12 E’s worth 1 point each, 4 D’s worth 2 points each, etc).
